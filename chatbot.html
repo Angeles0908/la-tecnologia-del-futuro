@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Nanobots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-ia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="loginPanel" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(135deg,#6366f1 0%,#4ecdc4 100%);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;animation:fadeIn 1.2s;">
+        <div style="background:rgba(255,255,255,0.97);padding:2.5em 2em 2em 2em;border-radius:18px;box-shadow:0 8px 32px rgba(44,62,80,0.18);display:flex;flex-direction:column;align-items:center;min-width:320px;max-width:90vw;">
+            <div style="margin-bottom:1em;">
+                <i class="fas fa-robot" style="font-size:2.5em;color:#6366f1;animation:robotWink 2.5s infinite;"></i>
+            </div>
+            <h2 style="margin-bottom:1.2em;font-weight:700;color:#222;letter-spacing:0.5px;">Acceso a EVALUANI IA</h2>
+            <form id="loginForm" style="display:flex;flex-direction:column;gap:1em;width:100%;">
+                <input type="text" id="loginUser" placeholder="Usuario" required style="padding:0.8em;font-size:1em;border-radius:7px;border:1.5px solid #d1d5db;outline:none;transition:border 0.2s;">
+                <input type="password" id="loginPass" placeholder="Contraseña" required style="padding:0.8em;font-size:1em;border-radius:7px;border:1.5px solid #d1d5db;outline:none;transition:border 0.2s;">
+                <button type="submit" style="padding:0.8em;font-size:1em;background:linear-gradient(90deg,#6366f1 40%,#4ecdc4 100%);color:#fff;border:none;border-radius:7px;font-weight:600;letter-spacing:0.5px;box-shadow:0 2px 8px rgba(44,62,80,0.08);cursor:pointer;transition:background 0.2s,transform 0.2s;">Ingresar</button>
+                <div id="loginError" style="color:#c00;font-size:0.97em;display:none;text-align:center;"></div>
+            </form>
+            <div style="margin-top:1.2em;font-size:0.98em;color:#6366f1;text-align:center;max-width:260px;">
+                <i class="fas fa-lightbulb"></i> Acceso exclusivo para usuarios autorizados de <b>EVALUANI</b> y <b>NEMESIT</b>.<br>¡Tu seguridad es importante!
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-history-panel" id="chatbotHistoryPanel">
+        <button class="sidebar-toggle-btn sidebar-fab" id="closeSidebarBtn" aria-label="Cerrar barra lateral">
+            <i class="fas fa-book-open"></i>
+        </button>
+        <div id="historyContent"></div>
+    </div>
+    <button class="sidebar-float-btn sidebar-fab" id="openSidebarBtn" style="display:none;" aria-label="Abrir barra lateral">
+        <i class="fas fa-book"></i>
+    </button>
+    <div class="chatbot-container">
+        <div class="chatbot-label" id="chatbotLabel">EVALUANI IA</div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            
+        </div>
+        <form class="chatbot-input" id="chatbotForm">
+            <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="chatbot-welcome" id="chatbotWelcome">Hola, ¿en qué puedo ayudarte?</div>
+    </div>
+    <script>
+        const form = document.getElementById('chatbotForm');
+        const input = document.getElementById('userInput');
+        const messages = document.getElementById('chatbotMessages');
+        const welcome = document.getElementById('chatbotWelcome');
+        const historyPanel = document.getElementById('chatbotHistoryPanel');
+        const historyContent = document.getElementById('historyContent');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+        const openSidebarBtn = document.getElementById('openSidebarBtn');
+
+        let welcomeHidden = false;
+        let conversationHistory = [];
+
+        closeSidebarBtn.addEventListener('click', () => {
+            document.body.classList.add('sidebar-closed');
+            // Cambia el ícono del botón flotante a libro cerrado
+            openSidebarBtn.querySelector('i').className = 'fas fa-book';
+            closeSidebarBtn.querySelector('i').className = 'fas fa-book-open';
+        });
+        openSidebarBtn.addEventListener('click', () => {
+            document.body.classList.remove('sidebar-closed');
+            // Cambia el ícono del botón de cerrar a libro abierto
+            closeSidebarBtn.querySelector('i').className = 'fas fa-book-open';
+            openSidebarBtn.querySelector('i').className = 'fas fa-book';
+        });
+
+        function hideWelcome() {
+            if (!welcomeHidden) {
+                welcome.style.display = 'none';
+                welcomeHidden = true;
+            }
+        }
+
+        function updateHistoryPanel() {
+            historyContent.innerHTML = '<h3>Historial</h3>';
+            if (conversationHistory.length === 0) {
+                historyContent.innerHTML += '<div style="color:#666;font-size:0.95em;">Sin mensajes aún</div>';
+            } else {
+                const ul = document.createElement('ul');
+                ul.style.listStyle = 'none';
+                ul.style.padding = '0';
+                conversationHistory.forEach((msg, idx) => {
+                    const li = document.createElement('li');
+                    li.style.marginBottom = '10px';
+                    li.style.wordBreak = 'break-word';
+                    li.textContent = (msg.sender === 'user' ? 'Tú: ' : 'IA: ') + msg.text;
+                    ul.appendChild(li);
+                });
+                historyContent.appendChild(ul);
+            }
+        }
+
+        input.addEventListener('input', hideWelcome);
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            hideWelcome();
+            const userText = input.value.trim();
+            if (!userText) return;
+            addMessage(userText, 'user');
+            conversationHistory.push({ sender: 'user', text: userText });
+            updateHistoryPanel();
+            setTimeout(() => {
+                const botReply = getBotReply(userText);
+                addMessage(botReply, 'bot');
+                conversationHistory.push({ sender: 'bot', text: botReply });
+                updateHistoryPanel();
+            }, 700);
+            input.value = '';
+        });
+
+        // --- INICIO BLOQUE PREGUNTAS Y RESPUESTAS ---
+        // (bloque eliminado)
+        // --- FIN BLOQUE PREGUNTAS Y RESPUESTAS ---
+
+        function getBotReply(userText) {
+          return 'Pronto podré responder tus preguntas sobre nanobots, medicina y medio ambiente.';
+        }
+
+        function addMessage(text, sender) {
+            const msg = document.createElement('div');
+            msg.className = 'message ' + sender;
+            msg.textContent = text;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Inicializar historial vacío
+        updateHistoryPanel();
+        // Iniciar con la barra lateral abierta
+        document.body.classList.remove('sidebar-closed');
+
+        // --- INICIO PANEL DE ACCESO ---
+        const loginPanel = document.getElementById('loginPanel');
+        const loginForm = document.getElementById('loginForm');
+        const loginUser = document.getElementById('loginUser');
+        const loginPass = document.getElementById('loginPass');
+        const loginError = document.getElementById('loginError');
+
+        const validUsers = {
+            'usuario1_eval': 'Ev4lu@2025_01',
+            'usuario2_eval': 'Ev4lu@2025_02',
+            'usuario3_eval': 'Ev4lu@2025_03',
+            'usuario4_eval': 'Ev4lu@2025_04',
+            'usuario5_eval': 'Ev4lu@2025_05',
+            'usuario6_eval': 'Ev4lu@2025_06',
+            'usuario7_eval': 'Ev4lu@2025_07',
+            'usuario8_eval': 'Ev4lu@2025_08',
+            'usuario9_eval': 'Ev4lu@2025_09',
+            'nemesit_admin': 'N3m3$!T_4ccess#2025'
+        };
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = loginUser.value.trim();
+            const pass = loginPass.value;
+            if (validUsers[user] && validUsers[user] === pass) {
+                loginPanel.style.display = 'none';
+            } else {
+                loginError.textContent = 'Usuario o contraseña incorrectos.';
+                loginError.style.display = 'block';
+            }
+        });
+        // --- FIN PANEL DE ACCESO ---
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes robotWink {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(-10deg); }
+            20% { transform: rotate(10deg); }
+            30% { transform: rotate(-10deg); }
+            40% { transform: rotate(0deg); }
+        }
+        #loginPanel button[type="submit"]:hover {
+            background:linear-gradient(90deg,#4ecdc4 40%,#6366f1 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        #loginPanel input:focus {
+            border:1.5px solid #6366f1;
+        }
+    </style>
+</body>
+</html> 

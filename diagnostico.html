@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico del Chatbot - Nanobots</title>
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .status-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .status-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .status-value {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .status-ok {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .solution-section {
+            background: #e7f3ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .solution-title {
+            color: #0056b3;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .solution-step {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #007bff;
+        }
+        .test-button {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+        }
+        .back-button {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .log-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Diagnóstico del Chatbot</h1>
+        
+        <div class="status-section">
+            <h3>📋 Estado de la Configuración</h3>
+            <div id="status-content">
+                <!-- El contenido se generará dinámicamente -->
+            </div>
+        </div>
+        
+        <div class="solution-section">
+            <div class="solution-title">🔧 Soluciones Recomendadas</div>
+            <div id="solution-content">
+                <!-- Las soluciones se generarán dinámicamente -->
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <button class="test-button" onclick="testHuggingFace()">🧪 Probar Hugging Face</button>
+            <button class="test-button" onclick="testOllama()">🤖 Probar Ollama</button>
+            <button class="test-button" onclick="clearStorage()">🗑️ Limpiar Configuración</button>
+        </div>
+        
+        <div class="log-section">
+            <h4>📝 Log de Pruebas</h4>
+            <div id="log-content"></div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">← Volver al Chatbot</a>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        function updateStatus() {
+            const statusContent = document.getElementById('status-content');
+            const solutionContent = document.getElementById('solution-content');
+            
+            // Obtener estado actual
+            const isUsingOllama = Config.isUsingOllama();
+            const isApiKeyConfigured = Config.isApiKeyConfigured();
+            const apiKey = Config.getApiKey();
+            const model = Config.API_SETTINGS.model;
+            const ollamaUrl = Config.OLLAMA_URL;
+            
+            // Generar HTML del estado
+            statusContent.innerHTML = `
+                <div class="status-item">
+                    <span class="status-label">Backend Actual:</span>
+                    <span class="status-value ${isUsingOllama ? 'status-ok' : 'status-warning'}">
+                        ${isUsingOllama ? 'Ollama (Local)' : 'Hugging Face'}
+                    </span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">API Key Configurada:</span>
+                    <span class="status-value ${isApiKeyConfigured ? 'status-ok' : 'status-error'}">
+                        ${isApiKeyConfigured ? '✅ Sí' : '❌ No'}
+                    </span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">API Key (primeros 10 chars):</span>
+                    <span class="status-value ${apiKey ? 'status-ok' : 'status-error'}">
+                        ${apiKey ? apiKey.substring(0, 10) + '...' : 'No configurada'}
+                    </span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Modelo Configurado:</span>
+                    <span class="status-value status-ok">${model}</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">URL de Ollama:</span>
+                    <span class="status-value status-ok">${ollamaUrl}</span>
+                </div>
+            `;
+            
+            // Generar soluciones
+            let solutions = '';
+            if (isUsingOllama) {
+                solutions = `
+                    <div class="solution-step">
+                        <strong>1. Verificar instalación de Ollama:</strong><br>
+                        Abre una terminal y ejecuta: <code>ollama --version</code>
+                    </div>
+                    <div class="solution-step">
+                        <strong>2. Verificar modelos disponibles:</strong><br>
+                        Ejecuta: <code>ollama list</code>
+                    </div>
+                    <div class="solution-step">
+                        <strong>3. Descargar modelo si no existe:</strong><br>
+                        Ejecuta: <code>ollama pull llama3.2:3b</code>
+                    </div>
+                    <div class="solution-step">
+                        <strong>4. Verificar que Ollama esté ejecutándose:</strong><br>
+                        Ejecuta: <code>curl http://localhost:11434/api/tags</code>
+                    </div>
+                `;
+            } else {
+                solutions = `
+                    <div class="solution-step">
+                        <strong>1. Obtener API key gratuita de Hugging Face:</strong><br>
+                        Ve a <a href="https://huggingface.co/settings/tokens" target="_blank">https://huggingface.co/settings/tokens</a>
+                    </div>
+                    <div class="solution-step">
+                        <strong>2. Crear nuevo token:</strong><br>
+                        Haz clic en "New token", dale un nombre y selecciona "Read"
+                    </div>
+                    <div class="solution-step">
+                        <strong>3. Configurar en el chatbot:</strong><br>
+                        Escribe "configurar api" en el chat y pega tu API key
+                    </div>
+                    <div class="solution-step">
+                        <strong>4. Alternativa - Usar Ollama:</strong><br>
+                        Escribe "usar ollama" en el chat para cambiar a Ollama (local, sin API key)
+                    </div>
+                `;
+            }
+            
+            solutionContent.innerHTML = solutions;
+        }
+        
+        function addLog(message, type = 'info') {
+            const logContent = document.getElementById('log-content');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#dc3545' : type === 'success' ? '#28a745' : '#007bff';
+            
+            logContent.innerHTML += `<div style="color: ${color}; margin: 5px 0;">
+                [${timestamp}] ${message}
+            </div>`;
+            logContent.scrollTop = logContent.scrollHeight;
+        }
+        
+        async function testHuggingFace() {
+            addLog('🧪 Probando conexión con Hugging Face...');
+            
+            if (!Config.isApiKeyConfigured()) {
+                addLog('❌ Error: No hay API key configurada', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`https://api-inference.huggingface.co/models/${Config.API_SETTINGS.model}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${Config.getApiKey()}`
+                    },
+                    body: JSON.stringify({
+                        inputs: 'Hola, ¿cómo estás?',
+                        parameters: {
+                            max_new_tokens: 50,
+                            temperature: 0.7
+                        }
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    addLog('✅ Conexión exitosa con Hugging Face', 'success');
+                    addLog(`📝 Respuesta: ${JSON.stringify(data).substring(0, 100)}...`);
+                } else {
+                    addLog(`❌ Error HTTP: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testOllama() {
+            addLog('🤖 Probando conexión con Ollama...');
+            
+            try {
+                const response = await fetch(`${Config.OLLAMA_URL}/api/tags`, {
+                    method: 'GET'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    addLog('✅ Conexión exitosa con Ollama', 'success');
+                    addLog(`📝 Modelos disponibles: ${data.models ? data.models.length : 0}`);
+                } else {
+                    addLog(`❌ Error HTTP: ${response.status}`, 'error');
+                    addLog('💡 Asegúrate de que Ollama esté ejecutándose: ollama serve', 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+                addLog('💡 Ollama no está ejecutándose o no está instalado', 'error');
+            }
+        }
+        
+        function clearStorage() {
+            if (confirm('¿Estás seguro de que quieres limpiar toda la configuración?')) {
+                localStorage.removeItem('huggingface_api_key');
+                localStorage.removeItem('use_ollama');
+                addLog('🗑️ Configuración limpiada', 'success');
+                updateStatus();
+            }
+        }
+        
+        // Actualizar estado al cargar la página
+        updateStatus();
+        addLog('🔍 Diagnóstico iniciado');
+    </script>
+</body>
+</html> 
+

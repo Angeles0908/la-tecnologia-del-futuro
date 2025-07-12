@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Diferentes Diseños del Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .designs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .design-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .design-card.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .design-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .design-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .design-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .design-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .design-features li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .design-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .select-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .select-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .select-btn.active {
+            background: #10b981;
+        }
+
+        .instructions {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .instructions h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .instructions ol {
+            color: #555;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        /* Diseño 1: Moderno */
+        .design-1 .design-icon {
+            color: #667eea;
+        }
+
+        /* Diseño 2: Minimalista */
+        .design-2 .design-icon {
+            color: #000;
+        }
+
+        /* Diseño 3: Futurístico */
+        .design-3 .design-icon {
+            color: #00d4ff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .designs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Diseños del Chatbot</h1>
+        <p class="subtitle">Elige el diseño que más te guste para tu chatbot de nanobots</p>
+
+        <div class="designs-grid">
+            <!-- Diseño 1: Moderno -->
+            <div class="design-card design-1" onclick="selectDesign('modern')">
+                <div class="design-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="design-title">Diseño Moderno</h3>
+                <p class="design-description">
+                    Un diseño elegante con gradientes suaves, efectos de cristal y animaciones fluidas. Perfecto para un look profesional y moderno.
+                </p>
+                <ul class="design-features">
+                    <li>Gradientes coloridos</li>
+                    <li>Efectos de cristal (glassmorphism)</li>
+                    <li>Animaciones suaves</li>
+                    <li>Colores vibrantes</li>
+                    <li>Diseño responsive</li>
+                </ul>
+                <button class="select-btn" onclick="selectDesign('modern')">Seleccionar Moderno</button>
+            </div>
+
+            <!-- Diseño 2: Minimalista -->
+            <div class="design-card design-2" onclick="selectDesign('minimalist')">
+                <div class="design-icon">
+                    <i class="fas fa-minus"></i>
+                </div>
+                <h3 class="design-title">Diseño Minimalista</h3>
+                <p class="design-description">
+                    Un diseño limpio y minimalista con colores neutros, tipografía clara y enfoque en la funcionalidad. Ideal para un look elegante y sobrio.
+                </p>
+                <ul class="design-features">
+                    <li>Colores neutros</li>
+                    <li>Diseño limpio</li>
+                    <li>Tipografía clara</li>
+                    <li>Enfoque en funcionalidad</li>
+                    <li>Elegante y sobrio</li>
+                </ul>
+                <button class="select-btn" onclick="selectDesign('minimalist')">Seleccionar Minimalista</button>
+            </div>
+
+            <!-- Diseño 3: Futurístico -->
+            <div class="design-card design-3" onclick="selectDesign('futuristic')">
+                <div class="design-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="design-title">Diseño Futurístico</h3>
+                <p class="design-description">
+                    Un diseño tecnológico con efectos de neón, animaciones holográficas y colores cyberpunk. Perfecto para un tema de nanobots y tecnología.
+                </p>
+                <ul class="design-features">
+                    <li>Efectos de neón</li>
+                    <li>Animaciones holográficas</li>
+                    <li>Colores cyberpunk</li>
+                    <li>Efectos de escaneo</li>
+                    <li>Tema tecnológico</li>
+                </ul>
+                <button class="select-btn" onclick="selectDesign('futuristic')">Seleccionar Futurístico</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instrucciones para Cambiar el Diseño</h3>
+            <ol>
+                <li><strong>Elige un diseño</strong> de los tres disponibles arriba</li>
+                <li><strong>Reemplaza el contenido</strong> del archivo <code>styles.css</code> con el diseño seleccionado</li>
+                <li><strong>Guarda el archivo</strong> y recarga la página</li>
+                <li><strong>¡Disfruta</strong> de tu nuevo diseño!</li>
+            </ol>
+
+            <h4>Archivos de diseño disponibles:</h4>
+            <div class="code-block">
+styles.css              # Diseño Moderno (actual)
+styles-alternative.css   # Diseño Minimalista
+styles-futuristic.css    # Diseño Futurístico
+            </div>
+
+            <p><strong>Nota:</strong> Todos los diseños son completamente funcionales y incluyen soporte para modo oscuro y dispositivos móviles.</p>
+        </div>
+    </div>
+
+    <script>
+        function selectDesign(design) {
+            // Remover clase active de todas las tarjetas
+            document.querySelectorAll('.design-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Remover clase active de todos los botones
+            document.querySelectorAll('.select-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Agregar clase active a la tarjeta seleccionada
+            event.currentTarget.classList.add('active');
+            
+            // Agregar clase active al botón seleccionado
+            event.target.classList.add('active');
+            
+            // Mostrar mensaje de confirmación
+            let designName = '';
+            switch(design) {
+                case 'modern':
+                    designName = 'Moderno';
+                    break;
+                case 'minimalist':
+                    designName = 'Minimalista';
+                    break;
+                case 'futuristic':
+                    designName = 'Futurístico';
+                    break;
+            }
+            
+            alert(`¡Has seleccionado el diseño ${designName}!\n\nPara aplicarlo:\n1. Copia el contenido de styles-${design === 'modern' ? '' : design === 'minimalist' ? 'alternative' : 'futuristic'}.css\n2. Pégalo en styles.css\n3. Guarda y recarga la página.`);
+        }
+    </script>
+</body>
+</html> 

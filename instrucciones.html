@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones de Uso - NEMESIT future</title>
+    <meta name="description" content="NEMESIT future: nanotecnología avanzada, nanobots y microcontroladores nano para el futuro de la salud y la tecnología.">
+    <meta property="og:title" content="NEMESIT future">
+    <meta property="og:site_name" content="NEMESIT future">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .instructions-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .instructions-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .instructions-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .back-to-main {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-main:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .instructions-container {
+            background: white;
+            color: #333;
+        }
+        
+        .instructions-section {
+            padding: 80px 0;
+        }
+        
+        .instructions-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .quick-nav {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .quick-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .quick-nav a {
+            color: #6366f1;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .quick-nav a:hover {
+            background: #6366f1;
+            color: white;
+            border-color: #6366f1;
+        }
+        
+        .warning-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .warning-banner i {
+            margin-right: 8px;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .faq-item h4 {
+            color: #6366f1;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .instruction-card,
+        .instruction-card h3,
+        .instruction-steps,
+        .instruction-steps h4,
+        .step-content,
+        .step-content p,
+        .warning-box,
+        .warning-box p {
+            color: #222 !important;
+        }
+
+        .safety-guidelines,
+        .guidelines-grid,
+        .guideline-item,
+        .guideline-item h4,
+        .guideline-item p {
+            color: #222 !important;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-to-main">
+        <i class="fas fa-arrow-left"></i>
+        Volver al Inicio
+    </a>
+
+    <!-- Hero Section -->
+    <section class="instructions-hero">
+        <div class="container">
+            <h1>📋 Instrucciones de Uso</h1>
+            <p>Guía completa para el uso seguro y efectivo de nanobots y microcontroladores nano de NEMESIT future</p>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="quick-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#nanobots">Nanobots</a></li>
+                <li><a href="#microcontrolador">Microcontrolador</a></li>
+                <li><a href="#seguridad">Seguridad</a></li>
+                <li><a href="#emergencias">Emergencias</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Warning Banner -->
+    <div class="warning-banner">
+        <i class="fas fa-exclamation-triangle"></i>
+        <strong>IMPORTANTE:</strong> Solo usar productos aprobados por autoridades sanitarias. Consultar con un profesional médico antes del uso.
+    </div>
+
+    <!-- Nanobots Instructions -->
+    <section id="nanobots" class="instructions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Consumo de Nanobots</h2>
+                <p>Instrucciones detalladas para el uso seguro de nanobots médicos</p>
+            </div>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Preparación y Dosificación</h3>
+                    <div class="instruction-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>Preparación</h4>
+                                <p>Los nanobots deben ser ingeridos con el estómago vacío, preferiblemente por la mañana. Evitar alimentos grasos 2 horas antes y después de la ingesta.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>Dosificación</h4>
+                                <p>La dosis estándar es de 1 billón de nanobots por tratamiento. Disolver en 250ml de agua purificada a temperatura ambiente.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>Ingesta</h4>
+                                <p>Beber la solución completa en un período de 5-10 minutos. Los nanobots comenzarán su actividad en el torrente sanguíneo en aproximadamente 30 minutos.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h4>Monitoreo</h4>
+                                <p>Mantener hidratación adecuada durante las siguientes 24 horas. Los nanobots serán eliminados naturalmente del cuerpo en 48-72 horas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p><strong>Advertencia:</strong> Solo usar nanobots aprobados por autoridades sanitarias. Consultar con un profesional médico antes del uso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Microcontroller Instructions -->
+    <section id="microcontrolador" class="instructions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Microcontrolador Nano</h2>
+                <p>Guía para la aplicación y uso del microcontrolador nano</p>
+            </div>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Aplicación del Dispositivo</h3>
+                    <div class="instruction-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>Preparación del Dispositivo</h4>
+                                <p>El microcontrolador nano debe ser colocado en la parte superior del brazo, aproximadamente 5cm por encima del codo. Limpiar la zona con alcohol isopropílico.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>Aplicación</h4>
+                                <p>Retirar la película protectora del microcontrolador. Aplicar suavemente sobre la piel limpia y seca. Presionar durante 30 segundos para asegurar el contacto.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>Activación</h4>
+                                <p>El microcontrolador se activará automáticamente al detectar el contacto con la piel. Una luz verde indicará que está funcionando correctamente.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h4>Monitoreo</h4>
+                                <p>El dispositivo puede permanecer colocado hasta 7 días. Cambiar la batería cada 48 horas si es necesario. Evitar contacto con agua durante el uso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p><strong>Advertencia:</strong> No aplicar sobre piel lesionada o irritada. Retirar inmediatamente si aparece enrojecimiento o picazón.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Guidelines -->
+    <section id="seguridad" class="instructions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pautas de Seguridad</h2>
+                <p>Información esencial para el uso seguro de nuestros productos</p>
+            </div>
+            
+            <div class="safety-guidelines">
+                <div class="guidelines-grid">
+                    <div class="guideline-item">
+                        <i class="fas fa-user-md"></i>
+                        <h4>Consulta Médica</h4>
+                        <p>Siempre consultar con un profesional de la salud antes de usar nanobots, especialmente si tienes condiciones médicas preexistentes.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Horarios</h4>
+                        <p>Respetar los intervalos de dosificación recomendados. No exceder la dosis prescrita bajo ninguna circunstancia.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h4>Almacenamiento</h4>
+                        <p>Mantener los nanobots en un lugar fresco y seco, entre 2-8°C. No congelar ni exponer a temperaturas superiores a 25°C.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-ban"></i>
+                        <h4>Contraindicaciones</h4>
+                        <p>No usar durante el embarazo, lactancia o en niños menores de 12 años sin supervisión médica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Information -->
+    <section id="emergencias" class="instructions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Información de Emergencia</h2>
+                <p>Contactos y síntomas que requieren atención médica inmediata</p>
+            </div>
+            
+            <div class="emergency-info">
+                <div class="emergency-content">
+                    <div class="emergency-contact">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Línea de Emergencia 24/7</h4>
+                            <p>1-800-NANOBOTS</p>
+                            <span>Disponible para consultas urgentes sobre nanobots</span>
+                        </div>
+                    </div>
+                    <div class="emergency-symptoms">
+                        <h4>Síntomas que Requieren Atención Médica Inmediata:</h4>
+                        <ul>
+                            <li>Reacciones alérgicas severas</li>
+                            <li>Fiebre superior a 39°C</li>
+                            <li>Dolor abdominal intenso</li>
+                            <li>Dificultad para respirar</li>
+                            <li>Irritación severa en el sitio del microcontrolador</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="instructions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Respuestas a las dudas más comunes sobre nuestros productos</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>¿Cuánto tiempo permanecen los nanobots en el cuerpo?</h4>
+                    <p>Los nanobots son eliminados naturalmente del cuerpo en 48-72 horas. Durante este tiempo, mantienen su actividad terapéutica.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Puedo usar el microcontrolador mientras hago ejercicio?</h4>
+                    <p>Sí, el microcontrolador está diseñado para resistir la actividad física. Sin embargo, evita el contacto directo con agua.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Los nanobots son seguros para personas con alergias?</h4>
+                    <p>Consulte siempre con su médico antes del uso si tiene alergias conocidas. Los nanobots están fabricados con materiales biocompatibles.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Qué hago si pierdo el microcontrolador?</h4>
+                    <p>El dispositivo tiene un sistema de localización integrado. Contacte inmediatamente con nuestro servicio de atención al cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/logo.png" alt="NEMESIT future Logo" class="footer-logo-img">
+                    <p>Explorando el futuro de la nanotecnología</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#que-son">¿Qué son?</a></li>
+                        <li><a href="index.html#aplicaciones">Aplicaciones</a></li>
+                        <li><a href="index.html#futuro">Futuro</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Investigación</a></li>
+                        <li><a href="#">Publicaciones</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NEMESIT future. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

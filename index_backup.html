@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAND7 Nanotechnology - El Futuro de la Medicina</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="OAND7 Nanotechnology Logo" class="logo-img">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#que-son">¿Qué son?</a></li>
+                <li><a href="#aplicaciones">Aplicaciones</a></li>
+                <li><a href="instrucciones.html" target="_blank">📋 Cómo Usar</a></li>
+                <li><a href="#universidades">Universidades</a></li>
+                <li><a href="#empresas">Empresas</a></li>
+                <li><a href="#futuro">Futuro</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="diagnostico.html" target="_blank">🔍 Diagnóstico</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- EUREKA Banner -->
+    <div class="eureka-banner">
+        <h2>EUREKA</h2>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Nanobots</span>
+                <br>El Futuro de la Medicina
+            </h1>
+            <p class="hero-subtitle">
+                Descubre cómo los robots microscópicos están revolucionando la medicina y la tecnología
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('que-son')">
+                    <i class="fas fa-play"></i>
+                    Explorar
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('aplicaciones')">
+                    <i class="fas fa-info-circle"></i>
+                    Aplicaciones
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="nanobot-animation">
+                <div class="nanobot"></div>
+                <div class="particles"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What are Nanobots Section -->
+    <section id="que-son" class="section">
+        <div class="container">
+            <h2 class="section-title">¿Qué son los Nanobots?</h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p class="lead">
+                        Los nanobots son robots microscópicos que operan a escala nanométrica (1-100 nanómetros), 
+                        aproximadamente del tamaño de una molécula.
+                    </p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-ruler"></i>
+                            <h3>Tamaño Microscópico</h3>
+                            <p>Miden entre 1 y 100 nanómetros, más pequeños que una célula humana</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Funcionalidad Compleja</h3>
+                            <p>Pueden realizar tareas específicas como navegación, detección y manipulación</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-dna"></i>
+                            <h3>Precisión Molecular</h3>
+                            <p>Capaces de interactuar con moléculas y células individuales</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-visual">
+                    <div class="comparison-chart">
+                        <div class="scale-item">
+                            <span>Humano</span>
+                            <div class="scale-bar human"></div>
+                        </div>
+                        <div class="scale-item">
+                            <span>Célula</span>
+                            <div class="scale-bar cell"></div>
+                        </div>
+                        <div class="scale-item">
+                            <span>Nanobot</span>
+                            <div class="scale-bar nanobot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="aplicaciones" class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title">Aplicaciones Revolucionarias</h2>
+            <div class="applications-grid">
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Medicina</h3>
+                    <ul>
+                        <li>Entrega precisa de medicamentos</li>
+                        <li>Cirugía no invasiva</li>
+                        <li>Detección temprana de enfermedades</li>
+                        <li>Reparación celular</li>
+                    </ul>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neurociencia</h3>
+                    <ul>
+                        <li>Mapeo cerebral detallado</li>
+                        <li>Tratamiento de enfermedades neurológicas</li>
+                        <li>Interfaces cerebro-computadora</li>
+                        <li>Reparación de neuronas</li>
+                    </ul>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Medio Ambiente</h3>
+                    <ul>
+                        <li>Limpieza de contaminantes</li>
+                        <li>Monitoreo ambiental</li>
+                        <li>Purificación de agua</li>
+                        <li>Captura de CO2</li>
+                    </ul>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industria</h3>
+                    <ul>
+                        <li>Fabricación molecular</li>
+                        <li>Control de calidad</li>
+                        <li>Mantenimiento predictivo</li>
+                        <li>Energía renovable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section id="instrucciones" class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title">Instrucciones de Uso de Nanobots</h2>
+            <p class="section-subtitle">Guía completa para el uso seguro y efectivo de nanobots y microcontroladores nano</p>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Consumo de Nanobots</h3>
+                    <div class="instruction-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>Preparación</h4>
+                                <p>Los nanobots deben ser ingeridos con el estómago vacío, preferiblemente por la mañana. Evitar alimentos grasos 2 horas antes y después de la ingesta.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>Dosificación</h4>
+                                <p>La dosis estándar es de 1 billón de nanobots por tratamiento. Disolver en 250ml de agua purificada a temperatura ambiente.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>Ingesta</h4>
+                                <p>Beber la solución completa en un período de 5-10 minutos. Los nanobots comenzarán su actividad en el torrente sanguíneo en aproximadamente 30 minutos.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h4>Monitoreo</h4>
+                                <p>Mantener hidratación adecuada durante las siguientes 24 horas. Los nanobots serán eliminados naturalmente del cuerpo en 48-72 horas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p><strong>Advertencia:</strong> Solo usar nanobots aprobados por autoridades sanitarias. Consultar con un profesional médico antes del uso.</p>
+                    </div>
+                </div>
+
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Microcontrolador Nano</h3>
+                    <div class="instruction-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>Preparación del Dispositivo</h4>
+                                <p>El microcontrolador nano debe ser colocado en la parte superior del brazo, aproximadamente 5cm por encima del codo. Limpiar la zona con alcohol isopropílico.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>Aplicación</h4>
+                                <p>Retirar la película protectora del microcontrolador. Aplicar suavemente sobre la piel limpia y seca. Presionar durante 30 segundos para asegurar el contacto.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>Activación</h4>
+                                <p>El microcontrolador se activará automáticamente al detectar el contacto con la piel. Una luz verde indicará que está funcionando correctamente.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h4>Monitoreo</h4>
+                                <p>El dispositivo puede permanecer colocado hasta 7 días. Cambiar la batería cada 48 horas si es necesario. Evitar contacto con agua durante el uso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p><strong>Advertencia:</strong> No aplicar sobre piel lesionada o irritada. Retirar inmediatamente si aparece enrojecimiento o picazón.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="safety-guidelines">
+                <h3>Pautas de Seguridad</h3>
+                <div class="guidelines-grid">
+                    <div class="guideline-item">
+                        <i class="fas fa-user-md"></i>
+                        <h4>Consulta Médica</h4>
+                        <p>Siempre consultar con un profesional de la salud antes de usar nanobots, especialmente si tienes condiciones médicas preexistentes.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Horarios</h4>
+                        <p>Respetar los intervalos de dosificación recomendados. No exceder la dosis prescrita bajo ninguna circunstancia.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h4>Almacenamiento</h4>
+                        <p>Mantener los nanobots en un lugar fresco y seco, entre 2-8°C. No congelar ni exponer a temperaturas superiores a 25°C.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-ban"></i>
+                        <h4>Contraindicaciones</h4>
+                        <p>No usar durante el embarazo, lactancia o en niños menores de 12 años sin supervisión médica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emergency-info">
+                <h3>Información de Emergencia</h3>
+                <div class="emergency-content">
+                    <div class="emergency-contact">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Línea de Emergencia 24/7</h4>
+                            <p>1-800-NANOBOTS</p>
+                            <span>Disponible para consultas urgentes sobre nanobots</span>
+                        </div>
+                    </div>
+                    <div class="emergency-symptoms">
+                        <h4>Síntomas que Requieren Atención Médica Inmediata:</h4>
+                        <ul>
+                            <li>Reacciones alérgicas severas</li>
+                            <li>Fiebre superior a 39°C</li>
+                            <li>Dolor abdominal intenso</li>
+                            <li>Dificultad para respirar</li>
+                            <li>Irritación severa en el sitio del microcontrolador</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- University Endorsements Section -->
+    <section id="universidades" class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title">Las Universidades Más Prestigiosas Confirman</h2>
+            <p class="section-subtitle">Las instituciones académicas más reconocidas del mundo afirman que los nanobots revolucionarán la medicina, el medio ambiente y la purificación del agua</p>
+            
+            <div class="universities-grid">
+                <div class="university-card">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                        <h3>MIT</h3>
+                        <span class="university-name">Massachusetts Institute of Technology</span>
+                    </div>
+                    <div class="university-quote">
+                        <blockquote>
+                            "Los nanobots representan la próxima revolución en medicina. Nuestros investigadores han demostrado que pueden navegar por el torrente sanguíneo para detectar y tratar enfermedades en sus etapas más tempranas, algo que cambiará fundamentalmente la forma en que practicamos la medicina."
+                        </blockquote>
+                        <div class="quote-author">
+                            <strong>Dr. Robert Langer</strong>
+                            <span>Profesor del MIT, Premio Nobel de Medicina</span>
+                        </div>
+                    </div>
+                    <div class="university-focus">
+                        <h4>Áreas de Investigación:</h4>
+                        <ul>
+                            <li>Nanobots para entrega de medicamentos</li>
+                            <li>Detección temprana de cáncer</li>
+                            <li>Purificación de agua a nivel molecular</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="university-card">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                        <h3>Stanford</h3>
+                        <span class="university-name">Stanford University</span>
+                    </div>
+                    <div class="university-quote">
+                        <blockquote>
+                            "En Stanford, hemos desarrollado nanobots que pueden limpiar contaminantes del agua con una eficiencia del 99.9%. Esta tecnología no solo revolucionará la purificación del agua, sino que también transformará la gestión ambiental global."
+                        </blockquote>
+                        <div class="quote-author">
+                            <strong>Dr. Zhenan Bao</strong>
+                            <span>Profesora de Ingeniería Química, Stanford</span>
+                        </div>
+                    </div>
+                    <div class="university-focus">
+                        <h4>Áreas de Investigación:</h4>
+                        <ul>
+                            <li>Nanobots para purificación de agua</li>
+                            <li>Limpieza de contaminantes ambientales</li>
+                            <li>Nanotecnología sostenible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="university-card">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                        <h3>Cambridge</h3>
+                        <span class="university-name">University of Cambridge</span>
+                    </div>
+                    <div class="university-quote">
+                        <blockquote>
+                            "Los nanobots están redefiniendo los límites de la medicina personalizada. Nuestros avances en nanobots de ADN programables permiten tratamientos ultra-específicos que revolucionarán la oncología y la medicina regenerativa."
+                        </blockquote>
+                        <div class="quote-author">
+                            <strong>Dr. Shankar Balasubramanian</strong>
+                            <span>Profesor de Medicina, Cambridge</span>
+                        </div>
+                    </div>
+                    <div class="university-focus">
+                        <h4>Áreas de Investigación:</h4>
+                        <ul>
+                            <li>Nanobots de ADN programables</li>
+                            <li>Medicina personalizada</li>
+                            <li>Regeneración tisular</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="university-card">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                        <h3>Harvard</h3>
+                        <span class="university-name">Harvard University</span>
+                    </div>
+                    <div class="university-quote">
+                        <blockquote>
+                            "Harvard está liderando la revolución de los nanobots en medicina. Nuestros investigadores han creado nanobots que pueden realizar cirugía no invasiva a nivel celular, abriendo nuevas posibilidades para tratar enfermedades que antes eran incurables."
+                        </blockquote>
+                        <div class="quote-author">
+                            <strong>Dr. George Church</strong>
+                            <span>Profesor de Genética, Harvard Medical School</span>
+                        </div>
+                    </div>
+                    <div class="university-focus">
+                        <h4>Áreas de Investigación:</h4>
+                        <ul>
+                            <li>Cirugía no invasiva con nanobots</li>
+                            <li>Terapia génica dirigida</li>
+                            <li>Nanobots para neurociencia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-highlights">
+                <h3>Investigaciones Destacadas</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>Medicina</h4>
+                        <p>Nanobots que detectan y tratan cáncer en etapas tempranas con 95% de precisión</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-tint"></i>
+                        <h4>Purificación de Agua</h4>
+                        <p>Eliminación de microplásticos y contaminantes con eficiencia del 99.9%</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Medio Ambiente</h4>
+                        <p>Limpieza de océanos y reducción de CO2 atmosférico mediante nanobots</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Changing Medicine & Environment Section -->
+    <section id="empresas" class="section">
+        <div class="container">
+            <h2 class="section-title">Empresas que Cambiarán la Medicina y el Medio Ambiente</h2>
+            <p class="section-subtitle">Líderes tecnológicos que están revolucionando el futuro de la salud y la sostenibilidad</p>
+            
+            <div class="companies-grid">
+                <div class="company-card">
+                    <div class="company-logo">
+                        <i class="fas fa-brain"></i>
+                        <h3>ChatGPT</h3>
+                        <span class="company-category">Inteligencia Artificial Avanzada</span>
+                    </div>
+                    <div class="company-description">
+                        <p>Líder mundial en inteligencia artificial y procesamiento de lenguaje natural, desarrollando sistemas de IA que revolucionan la investigación médica y el análisis ambiental.</p>
+                    </div>
+                    <div class="company-impact">
+                        <h4>Impacto en el Futuro:</h4>
+                        <ul>
+                            <li>IA para control de nanobots médicos</li>
+                            <li>Análisis de datos ambientales</li>
+                            <li>Optimización de tratamientos personalizados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-logo">
+                        <i class="fas fa-microchip"></i>
+                        <h3>TSMC</h3>
+                        <span class="company-category">Taiwan Semiconductor Manufacturing Company</span>
+                    </div>
+                    <div class="company-description">
+                        <p>El mayor fabricante de semiconductores del mundo, especializado en la fabricación de chips de precisión nanométrica para aplicaciones médicas y tecnológicas avanzadas.</p>
+                    </div>
+                    <div class="company-impact">
+                        <h4>Impacto en el Futuro:</h4>
+                        <ul>
+                            <li>Fabricación de chips para nanobots</li>
+                            <li>Tecnología de 3nm y 2nm</li>
+                            <li>Semiconductores para sensores médicos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="company-card startup-card">
+                    <div class="company-logo">
+                        <i class="fas fa-rocket"></i>
+                        <h3>0and7</h3>
+                        <span class="company-category">Nueva Startup - Fabricación de Nanorobots</span>
+                    </div>
+                    <div class="company-description">
+                        <p>Startup innovadora con la visión revolucionaria de fabricar nanorobots a escala industrial. Nuestro objetivo es democratizar la nanotecnología y hacerla accesible para aplicaciones médicas y ambientales.</p>
+                    </div>
+                    <div class="company-impact">
+                        <h4>Visión de la Startup:</h4>
+                        <ul>
+                            <li>Fabricación masiva de nanorobots médicos</li>
+                            <li>Producción de nanobots para limpieza ambiental</li>
+                            <li>Democratización de la nanotecnología</li>
+                        </ul>
+                    </div>
+                    <div class="startup-badge">
+                        <span>🚀 Startup Emergente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="futuro" class="section">
+        <div class="container">
+            <h2 class="section-title">El Futuro de los Nanobots</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2024-2030</h3>
+                        <p>Primeros nanobots médicos aprobados para uso clínico limitado</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2030-2040</h3>
+                        <p>Nanobots autónomos para diagnóstico y tratamiento personalizado</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2040-2050</h3>
+                        <p>Enjambres de nanobots para cirugía compleja y regeneración tisular</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2050+</h3>
+                        <p>Nanobots integrados en el cuerpo humano para monitoreo continuo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">¿Interesado en Nanobots?</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Mantente Informado</h3>
+                    <p>Suscríbete para recibir las últimas noticias sobre el desarrollo de nanobots</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="newsletter-form" action="https://formspree.io/f/angelsalitasramos20082009@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nueva suscripción a Nanobots Newsletter">
+                        <input type="hidden" name="_next" value="gracias.html">
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="interest" name="interest">
+                                <option value="">Área de interés</option>
+                                <option value="medicina">Medicina</option>
+                                <option value="investigacion">Investigación</option>
+                                <option value="tecnologia">Tecnología</option>
+                                <option value="educacion">Educación</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Suscribirse
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/logo.png" alt="OAND7 Nanotechnology Logo" class="footer-logo-img">
+                    <p>Explorando el futuro de la nanotecnología</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#que-son">¿Qué son?</a></li>
+                        <li><a href="#aplicaciones">Aplicaciones</a></li>
+                        <li><a href="#futuro">Futuro</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Investigación</a></li>
+                        <li><a href="#">Publicaciones</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OAND7 Nanotechnology. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="chatbot-config.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-label">Asistente IA</span>
+        </div>
+        
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <i class="fas fa-robot"></i>
+                    <span>Asistente Nanobots</span>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asistente de IA especializado en nanobots. ¿En qué puedo ayudarte hoy? Puedo responder preguntas sobre:</p>
+                        <ul>
+                            <li>¿Qué son los nanobots?</li>
+                            <li>Aplicaciones médicas</li>
+                            <li>Futuro de la nanotecnología</li>
+                            <li>Investigación actual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <div class="chatbot-input-wrapper">
+                    <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." maxlength="500">
+                    <button id="chatbot-send" class="chatbot-send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="chatbot-typing" id="chatbot-typing" style="display: none;">
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span>Asistente escribiendo...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
